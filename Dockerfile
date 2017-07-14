@@ -6,7 +6,20 @@ ENV VERSION=10.0.0.0b1
 
 #&& apk add --no-cache libffi-dev python-dev libssl-dev mysql-client python-mysqldb \
 
-RUN set -x \   
+RUN set -x \  
+    && apk add --no-cache --virtual .build-deps \
+		coreutils \
+		gcc \
+		linux-headers \
+		make \
+		musl-dev \
+        libffi-dev \
+        python-dev \
+        mysql-client \
+		zlib \
+		zlib-dev \
+		openssl \
+		openssl-dev \
     && curl -fSL https://github.com/openstack/keystone/archive/${VERSION}.tar.gz -o keystone-${VERSION}.tar.gz \
     && tar xvf keystone-${VERSION}.tar.gz \
     && cd keystone-${VERSION} \
@@ -16,4 +29,5 @@ RUN set -x \
     && cp -r etc /etc/keystone \
     && pip install python-openstackclient \
     && cd - \
-    && rm -rf keystone-${VERSION}*
+    && rm -rf keystone-${VERSION}* \
+    && apk del .build-deps
