@@ -16,6 +16,7 @@ RUN set -x \
         libffi-dev \
         python-dev \
         mysql-client \
+	py-mysqldb \
 		zlib \
 		zlib-dev \
 		openssl \
