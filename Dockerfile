@@ -5,6 +5,8 @@ MAINTAINER Wang Lilong "wanglilong007@gmail.com"
 ENV VERSION=10.0.0.0b1
 
 #&& apk add --no-cache libffi-dev python-dev libssl-dev mysql-client python-mysqldb \
+		#openssl \
+		#openssl-dev \
 
 RUN set -x \  
     && apk add --no-cache --virtual .build-deps \
@@ -19,8 +21,7 @@ RUN set -x \
 	py-mysqldb \
 		zlib \
 		zlib-dev \
-		openssl \
-		openssl-dev \
+	mariadb-dev \
     && curl -fSL https://github.com/openstack/keystone/archive/${VERSION}.tar.gz -o keystone-${VERSION}.tar.gz \
     && tar xvf keystone-${VERSION}.tar.gz \
     && cd keystone-${VERSION} \
