@@ -15,13 +15,14 @@ RUN set -x \
 		linux-headers \
 		make \
 		musl-dev \
+		zlib \
+		zlib-dev \
+	mariadb-dev \
+    && apk add --no-cache --virtual .run-deps  \
         libffi-dev \
         python-dev \
         mysql-client \
 	py-mysqldb \
-		zlib \
-		zlib-dev \
-	mariadb-dev \
     && curl -fSL https://github.com/openstack/keystone/archive/${VERSION}.tar.gz -o keystone-${VERSION}.tar.gz \
     && tar xvf keystone-${VERSION}.tar.gz \
     && cd keystone-${VERSION} \
