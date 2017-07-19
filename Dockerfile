@@ -7,13 +7,14 @@ ENV VERSION=10.0.0.0b1
 RUN set -x \  
     && apk add --no-cache --virtual .build-deps \
 		coreutils \
+		curl \
 		gcc \
 		linux-headers \
 		make \
 		musl-dev \
 		zlib \
 		zlib-dev \
-	mariadb-dev \
+		mariadb-dev \
     && apk add --no-cache --virtual .run-deps  \
         libffi-dev \
         python-dev \
