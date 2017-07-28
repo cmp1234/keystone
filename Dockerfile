@@ -2,7 +2,7 @@ FROM cmp1234/nginx-python:1.10.3-python2.7.13-alpine3.6
 
 MAINTAINER Wang Lilong "wanglilong007@gmail.com"
 
-ENV VERSION=10.0.0
+ENV VERSION=10.0.0.0b1
 
 RUN set -x \  
     && apk add --no-cache --virtual .build-deps \
