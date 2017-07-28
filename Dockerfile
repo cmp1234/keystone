@@ -25,7 +25,7 @@ RUN set -x \
     && cd keystone-${VERSION} \
     && pip install -r requirements.txt \
     && PBR_VERSION=${VERSION}  pip install . \
-    && pip install uwsgi==2.0.15 MySQL-python \
+    && pip install uwsgi==2.0.15 MySQL-python PyMySQL\
     && cp -r etc /etc/keystone \
     && pip install python-openstackclient \
     && cd - \
