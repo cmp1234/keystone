@@ -13,6 +13,8 @@ RUN set -x \
 		make \
 		musl-dev \
 		zlib \
+		libffi-dev \
+                python-dev \
 		zlib-dev \
 		mariadb-dev \
     && curl -fSL https://github.com/openstack/keystone/archive/${VERSION}.tar.gz -o keystone-${VERSION}.tar.gz \
@@ -22,8 +24,6 @@ RUN set -x \
     && PBR_VERSION=${VERSION}  pip install . \
     && pip install uwsgi==2.0.15 MySQL-python PyMySQL\
     && apk add --no-cache --virtual .run-deps  \
-        libffi-dev \
-        python-dev \
         mysql-client \
 	py-mysqldb \
     && cp -r etc /etc/keystone \
