@@ -27,7 +27,7 @@ RUN set -x \
         mysql-client \
 	py-mysqldb \
     && cp -r etc /etc/keystone \
-    && pip install python-openstackclient \
+    && pip install python-openstackclient==3.8.1 \
     && cd - \
     && rm -rf keystone-${VERSION}* \
     && apk del .build-deps
