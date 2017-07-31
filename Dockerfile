@@ -15,17 +15,17 @@ RUN set -x \
 		zlib \
 		zlib-dev \
 		mariadb-dev \
-    && apk add --no-cache --virtual .run-deps  \
-        libffi-dev \
-        python-dev \
-        mysql-client \
-	py-mysqldb \
     && curl -fSL https://github.com/openstack/keystone/archive/${VERSION}.tar.gz -o keystone-${VERSION}.tar.gz \
     && tar xvf keystone-${VERSION}.tar.gz \
     && cd keystone-${VERSION} \
     && pip install -r requirements.txt \
     && PBR_VERSION=${VERSION}  pip install . \
     && pip install uwsgi==2.0.15 MySQL-python PyMySQL\
+    && apk add --no-cache --virtual .run-deps  \
+        libffi-dev \
+        python-dev \
+        mysql-client \
+	py-mysqldb \
     && cp -r etc /etc/keystone \
     && pip install python-openstackclient \
     && cd - \
