@@ -22,12 +22,12 @@ RUN set -x \
     && cd keystone-${VERSION} \
     && pip install -r requirements.txt \
     && PBR_VERSION=${VERSION}  pip install . \
-    && pip install uwsgi==2.0.15 MySQL-python PyMySQL==0.7.4 \
+    && pip install uwsgi==2.0.15 MySQL-python PyMySQL \
     && apk add --no-cache --virtual .run-deps  \
         mysql-client \
 	py-mysqldb \
     && cp -r etc /etc/keystone \
-    && pip install python-openstackclient==3.8.1 \
+    && pip install python-openstackclient \
     && cd - \
     && rm -rf keystone-${VERSION}* \
     && apk del .build-deps
