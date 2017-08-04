@@ -24,7 +24,7 @@ RUN set -x \
     && PBR_VERSION=${VERSION}  pip install . \
     && pip install uwsgi==2.0.15 PyMySQL==0.7.4 MySQL-python==1.2.5\
     && apk add --no-cache --virtual .run-deps  \
-    	libffi=3.2.1 \
+    	libffi=3.2.1-r3 \
     #    mysql-client \
 	#py-mysqldb \
     && cp -r etc /etc/keystone \
