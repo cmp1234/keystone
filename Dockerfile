@@ -22,7 +22,7 @@ RUN set -x \
     && cd keystone-${VERSION} \
     && pip install -r requirements.txt \
     && PBR_VERSION=${VERSION}  pip install . \
-    && pip install uwsgi==2.0.15 PyMySQL==0.7.11 \
+    && pip install uwsgi==2.0.15 PyMySQL \
     && apk add --no-cache --virtual .run-deps  \
         mysql-client \
 	py-mysqldb \
